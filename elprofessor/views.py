@@ -33,7 +33,7 @@ def AddProject(request):
         if form.is_valid():
             for i in l:
                 if i.user == local_user:
-                    a=Project(proj_name=form.cleaned_data.get('proj_name'),proj_cpi=form.cleaned_data.get('proj_cpi'),proj_description=form.cleaned_data.get('proj_description'),proj_prof=local_user,proj_dept=form.cleaned_data.get('proj_dept'),proj_status='na')
+                    a=Project(proj_name=form.cleaned_data.get('proj_name'),proj_cpi=form.cleaned_data.get('proj_cpi'),proj_description=form.cleaned_data.get('proj_description'),proj_prof=local_user,proj_dept=form.cleaned_data.get('proj_dept'),proj_status='Not Assigned')
                     a.save()
                     context={'proj_name':a.proj_name,'proj_cpi':a.proj_cpi,'proj_dept':a.proj_dept,'proj_description':a.proj_description}
                     return render(request, 'success.html', context)

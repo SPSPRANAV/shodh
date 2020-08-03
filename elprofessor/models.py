@@ -19,9 +19,9 @@ DEPT_CHOICES=(
 )
 
 STATUS=(
-    ('NA','Not Assigned'),
-    ('OG','Ongoing'),
-    ('CP','Completed'),
+    ('Not Assigned','NA'),
+    ('Ongoing','OG'),
+    ('Completed','CP'),
 
 )
 DECISION=(
@@ -35,7 +35,7 @@ class Project(models.Model):
     proj_description = models.TextField(max_length=1000)
     proj_prof = models.ForeignKey(User, on_delete=models.CASCADE)
     proj_dept = MultiSelectField(choices=DEPT_CHOICES)
-    proj_status=models.CharField(choices=STATUS,max_length=2,default='na')
+    proj_status=models.CharField(choices=STATUS,max_length=12,default='Not Assigned')
 
 class Accept(models.Model):
     appl_id= models.IntegerField()
